@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Player;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -45,14 +46,14 @@ public class BucketRenderer : MonoBehaviour
         
         foreach (var pair in _layers)
         {
-            if (Player.Instance.minerals[pair.Key] <= 0)
+            if (PlayerController.Instance.minerals[pair.Key] <= 0)
             {
                 pair.Value.enabled = false;
                 continue;
             }
             
             pair.Value.enabled = true;
-            _size = Mathf.FloorToInt(Mathf.Max(((Player.Instance.minerals[pair.Key] * hMult) / 16f), 1));
+            _size = Mathf.FloorToInt(Mathf.Max(((PlayerController.Instance.minerals[pair.Key] * hMult) / 16f), 1));
             pair.Value.rectTransform.sizeDelta = new Vector2(width, _size);//TODO cache
             pair.Value.rectTransform.localPosition = new Vector3(0, (_size/2) - vertOffset + _offset);
             _offset += _size;

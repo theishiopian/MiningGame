@@ -6390,7 +6390,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   idleState:
-    frames:
+    sprites:
     - {fileID: 5402251393668616626, guid: 2ce6d82dcc07d2148a4e4d8f7b97e19e, type: 3}
     - {fileID: -6417199148838126955, guid: 2ce6d82dcc07d2148a4e4d8f7b97e19e, type: 3}
     - {fileID: 6440818723165312323, guid: 2ce6d82dcc07d2148a4e4d8f7b97e19e, type: 3}
@@ -6398,7 +6398,7 @@ MonoBehaviour:
     frameTime: 0.2
     loop: 1
   walkState:
-    frames:
+    sprites:
     - {fileID: 7972778911334129675, guid: 2ce6d82dcc07d2148a4e4d8f7b97e19e, type: 3}
     - {fileID: -8603340231748891900, guid: 2ce6d82dcc07d2148a4e4d8f7b97e19e, type: 3}
     - {fileID: 3332372036246839922, guid: 2ce6d82dcc07d2148a4e4d8f7b97e19e, type: 3}
@@ -6406,7 +6406,7 @@ MonoBehaviour:
     frameTime: 0.2
     loop: 1
   jumpState:
-    frames:
+    sprites:
     - {fileID: -8389714956869602844, guid: 2ce6d82dcc07d2148a4e4d8f7b97e19e, type: 3}
     - {fileID: -7921359422480622686, guid: 2ce6d82dcc07d2148a4e4d8f7b97e19e, type: 3}
     - {fileID: 4842348202912080865, guid: 2ce6d82dcc07d2148a4e4d8f7b97e19e, type: 3}
@@ -6414,7 +6414,7 @@ MonoBehaviour:
     frameTime: 0.1
     loop: 0
   mineState:
-    frames:
+    sprites:
     - {fileID: 3837461834944670292, guid: 2ce6d82dcc07d2148a4e4d8f7b97e19e, type: 3}
     - {fileID: 7571026144291081988, guid: 2ce6d82dcc07d2148a4e4d8f7b97e19e, type: 3}
     - {fileID: 2674557058829871777, guid: 2ce6d82dcc07d2148a4e4d8f7b97e19e, type: 3}

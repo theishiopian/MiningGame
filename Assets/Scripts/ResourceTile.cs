@@ -1,3 +1,4 @@
+using Player;
 using UnityEngine;
 
 [CreateAssetMenu]
@@ -11,6 +12,6 @@ public class ResourceTile : GameTile
 
         BucketRenderer.Instance.fill += 1;
         
-        Player.Instance.AddMinerals(this);
+        PlayerController.Instance.AddMinerals(this);
     }
 }
