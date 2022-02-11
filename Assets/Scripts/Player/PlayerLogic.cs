@@ -1,11 +1,9 @@
 ﻿using StateMachine;
-using UnityEngine.EventSystems;
+using System;
+using UnityEngine;
 
 namespace Player
-{
-    using System;
-    using UnityEngine;
-
+{ 
     public abstract class PlayerLogic
     {
         #region STATES
@@ -31,7 +29,7 @@ namespace Player
                 if (InputHandler.Instance.JumpHeld && owner.IsGrounded())
                 {
                     owner.StateMachine.ChangeState("jumping");
-                    return;
+                    return;//yes, this is redundant, but it may NOT be in the future
                 }
             }
         }

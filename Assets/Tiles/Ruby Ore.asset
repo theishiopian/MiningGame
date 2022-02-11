@@ -33,8 +33,9 @@ MonoBehaviour:
     e33: 1
   m_InstancedGameObject: {fileID: 0}
   m_Flags: 1
-  m_ColliderType: 1
+  m_ColliderType: 2
   hardness: 0
   particleColorA: {r: 0.6745098, g: 0.19607845, b: 0.19607845, a: 1}
   particleColorB: {r: 0.85098046, g: 0.34117648, b: 0.38823533, a: 1}
   value: 0
+  fillSprite: {fileID: 0}

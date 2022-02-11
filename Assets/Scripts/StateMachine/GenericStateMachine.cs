@@ -8,6 +8,7 @@ namespace StateMachine
         private IGenericState<T> _state;
         private readonly T _owner;
         private readonly Dictionary<string, IGenericState<T>> _states = new Dictionary<string, IGenericState<T>>();
+        
         public GenericStateMachine(IGenericState<T> startingState, T owner)
         {
             _owner = owner;
