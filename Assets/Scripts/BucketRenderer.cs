@@ -55,7 +55,7 @@ public class BucketRenderer : MonoBehaviour
             pair.Value.enabled = true;
             _size = Mathf.FloorToInt(Mathf.Max(((PlayerController.Instance.minerals[pair.Key] * hMult) / 16f), 1));
             pair.Value.rectTransform.sizeDelta = new Vector2(width, _size);//TODO cache
-            pair.Value.rectTransform.localPosition = new Vector3(0, (_size/2) - vertOffset + _offset);
+            pair.Value.rectTransform.localPosition = new Vector3(0, (_size/2f) - vertOffset + _offset);
             _offset += _size;
         }
     }

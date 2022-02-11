@@ -6263,10 +6263,10 @@ GameObject:
   - component: {fileID: 1545135478}
   - component: {fileID: 1545135480}
   - component: {fileID: 1545135474}
-  - component: {fileID: 1545135472}
   - component: {fileID: 1545135475}
   - component: {fileID: 1545135476}
   - component: {fileID: 1545135477}
+  - component: {fileID: 1545135472}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -6274,8 +6274,8 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!70 &1545135472
-CapsuleCollider2D:
+--- !u!61 &1545135472
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -6287,9 +6287,19 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.1}
-  m_Size: {x: 0.3, y: 0.8}
-  m_Direction: 0
+  m_Offset: {x: 0.03, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.375, y: 1}
+  m_EdgeRadius: 0
 --- !u!4 &1545135473
 Transform:
   m_ObjectHideFlags: 0

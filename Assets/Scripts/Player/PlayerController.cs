@@ -1,12 +1,12 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+
 using StateMachine;
 
 namespace Player
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using UnityEngine;
-
     public class PlayerController : AbstractCharacter
     {
         #region SINGLETON
@@ -30,38 +30,34 @@ namespace Player
         #endregion
 
         #region INSPECTOR
-
-        [Header("State")] [SerializeField] private PlayerLogic.Idle idleState;
+        [Header("State")] 
+        [SerializeField] private PlayerLogic.Idle idleState;
         [SerializeField] private PlayerLogic.Walking walkState;
         [SerializeField] private PlayerLogic.Jumping jumpState;
         [SerializeField] private PlayerLogic.Mining mineState;
 
-        [Header("Movement")] public float walkSpeed = 3;
+        [Header("Movement")] 
+        public float walkSpeed = 3;
         public float airSpeed = 1;
         public float jumpForce = 15;
 
-        [Header("Ground Check")] public LayerMask groundMask;
+        [Header("Ground Check")] 
+        public LayerMask groundMask;
         public float castDist = 1;
 
-        [Header("Mining")] public float digRange = 1;
+        [Header("Mining")] 
+        public float digRange = 1;
         public int digPower = 1;
         public LayerMask mineMask;
-
         #endregion
 
         public readonly Dictionary<ResourceTile, int> minerals = new Dictionary<ResourceTile, int>();
 
-        private Rigidbody2D _body;
-        private CapsuleCollider2D _collider;
-
         public GenericStateMachine<PlayerController> StateMachine { get; private set; }
-        public Rigidbody2D Body { get; private set; }
 
         protected override void Start()
         {
             base.Start();
-            Body = GetComponent<Rigidbody2D>();
-            _collider = GetComponent<CapsuleCollider2D>();
 
             StateMachine = new GenericStateMachine<PlayerController>(idleState, this);
 
@@ -94,7 +90,7 @@ namespace Player
 
         public bool IsGrounded()
         {
-            return Physics2D.CapsuleCast(transform.position, _collider.size, _collider.direction, 0, Vector2.down,
+            return Physics2D.BoxCast(transform.position, ((BoxCollider2D)Collider).size, 0, Vector2.down,
                 castDist, groundMask);
         }
 
