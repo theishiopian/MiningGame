@@ -37,5 +37,5 @@ MonoBehaviour:
   hardness: 0
   particleColorA: {r: 0.21568629, g: 0.5803922, b: 0.43137258, a: 1}
   particleColorB: {r: 0.8745099, g: 0.4431373, b: 0.14901961, a: 1}
-  value: 0
+  value: 5
   fillSprite: {fileID: 0}

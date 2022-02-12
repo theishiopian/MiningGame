@@ -235,10 +235,10 @@ RectTransform:
   m_Father: {fileID: 412452263}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 6}
-  m_SizeDelta: {x: 16, y: 30}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -24, y: 6}
+  m_SizeDelta: {x: 31.9, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &139993098
 MonoBehaviour:
@@ -273,7 +273,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 50
+  m_Text: 0
 --- !u!222 &139993099
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -632,6 +632,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 412452263}
+  - component: {fileID: 412452264}
   m_Layer: 5
   m_Name: Fortune and Glory
   m_TagString: Untagged
@@ -652,7 +653,7 @@ RectTransform:
   m_Children:
   - {fileID: 1111592529}
   - {fileID: 139993097}
-  - {fileID: 2136850902}
+  - {fileID: 574353340}
   m_Father: {fileID: 935821155}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -661,6 +662,100 @@ RectTransform:
   m_AnchoredPosition: {x: -14.75, y: -8.25}
   m_SizeDelta: {x: 32, y: 16}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &412452264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 412452262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c10b478ca19e5124083fddfe163420fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fortune: {fileID: 139993098}
+  glory: {fileID: 574353341}
+--- !u!1 &574353339
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 574353340}
+  - component: {fileID: 574353342}
+  - component: {fileID: 574353341}
+  m_Layer: 5
+  m_Name: Glory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &574353340
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 574353339}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1892821722}
+  m_Father: {fileID: 412452263}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -24, y: -0.1}
+  m_SizeDelta: {x: 31.9, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &574353341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 574353339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 01902c98417417743adcfdaa07e446a1, type: 3}
+    m_FontSize: 16
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 40
+    m_Alignment: 5
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 0
+--- !u!222 &574353342
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 574353339}
+  m_CullTransparentMesh: 1
 --- !u!1 &661917278
 GameObject:
   m_ObjectHideFlags: 0
@@ -6399,6 +6494,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25fea8f01f78f354e98bfab85c6bdbb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 1
+  castDist: 0.15
   idleState:
     sprites:
     - {fileID: 5402251393668616626, guid: 2ce6d82dcc07d2148a4e4d8f7b97e19e, type: 3}
@@ -6434,15 +6533,13 @@ MonoBehaviour:
   walkSpeed: 3
   airSpeed: 4
   jumpForce: 12
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 1
-  castDist: 0.15
   digRange: 1.5
   digPower: 1
   mineMask:
     serializedVersion: 2
     m_Bits: 1
+  fortune: 0
+  glory: 0
 --- !u!114 &1545135477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6680,7 +6777,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 11, y: -3}
+  m_AnchoredPosition: {x: 19, y: -3}
   m_SizeDelta: {x: 8, y: 8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1643505488
@@ -6721,7 +6818,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1643505486}
   m_CullTransparentMesh: 1
---- !u!1 &1859903516
+--- !u!1 &1892821721
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6729,9 +6826,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1859903517}
-  - component: {fileID: 1859903519}
-  - component: {fileID: 1859903518}
+  - component: {fileID: 1892821722}
+  - component: {fileID: 1892821724}
+  - component: {fileID: 1892821723}
   m_Layer: 5
   m_Name: Icon
   m_TagString: Untagged
@@ -6739,32 +6836,32 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &1859903517
+--- !u!224 &1892821722
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1859903516}
+  m_GameObject: {fileID: 1892821721}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2136850902}
+  m_Father: {fileID: 574353340}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 11, y: -3}
-  m_SizeDelta: {x: 8, y: 8.1}
+  m_AnchoredPosition: {x: 19, y: -3}
+  m_SizeDelta: {x: 8, y: 8}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1859903518
+--- !u!114 &1892821723
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1859903516}
+  m_GameObject: {fileID: 1892821721}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -6788,13 +6885,13 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!222 &1859903519
+--- !u!222 &1892821724
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1859903516}
+  m_GameObject: {fileID: 1892821721}
   m_CullTransparentMesh: 1
 --- !u!1 &2110293961
 GameObject:
@@ -7339,6 +7436,384 @@ MonoBehaviour:
         m_RotationOrder: 0
       xScale: 0.55
       yScale: 0.56
+  - name: Riches in the deep
+    depth: 200
+    caveWidth: 0.1
+    caveHeight: 0.1
+    startTile: {fileID: 11400000, guid: 2fe644d1bfc6f8044bf99133e261b28d, type: 2}
+    mainTile: {fileID: 11400000, guid: 2fe644d1bfc6f8044bf99133e261b28d, type: 2}
+    densityCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    fadeCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    ores:
+    - name: Copper Ore
+      oreTile: {fileID: 11400000, guid: 8dcc9f561ff47db4e9fdf06425f73674, type: 2}
+      oreCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0.053547304
+          outSlope: 0.053547304
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.23343846
+        - serializedVersion: 3
+          time: 0.24685535
+          value: 0.26699412
+          inSlope: 0.017335065
+          outSlope: 0.017335065
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.22851601
+        - serializedVersion: 3
+          time: 1
+          value: 0
+          inSlope: 0.06186412
+          outSlope: 0.06186412
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.20729242
+          outWeight: 0.33333334
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 0
+      xScale: 0.4
+      yScale: 0.56
+    - name: Iron Ore
+      oreTile: {fileID: 11400000, guid: 00bd58df3b43f44469228e5458219912, type: 2}
+      oreCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0.053547304
+          outSlope: 0.053547304
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.23343846
+        - serializedVersion: 3
+          time: 0.7374654
+          value: 0.35202858
+          inSlope: 0.017335065
+          outSlope: 0.017335065
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.22851601
+        - serializedVersion: 3
+          time: 1
+          value: 0
+          inSlope: 0.06186412
+          outSlope: 0.06186412
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.20729242
+          outWeight: 0.33333334
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 0
+      xScale: 0.55
+      yScale: 0.4
+    - name: Gold Ore
+      oreTile: {fileID: 11400000, guid: c295233ed67d1ff408fcbae28ddbf746, type: 2}
+      oreCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0.053547304
+          outSlope: 0.053547304
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.23343846
+        - serializedVersion: 3
+          time: 0.94675493
+          value: 0.20119545
+          inSlope: 0.017335065
+          outSlope: 0.017335065
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.22851601
+        - serializedVersion: 3
+          time: 1
+          value: 0
+          inSlope: 0.06186412
+          outSlope: 0.06186412
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.20729242
+          outWeight: 0.33333334
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 0
+      xScale: 0.4
+      yScale: 0.6
+  - name: Crystal Caverns
+    depth: 100
+    caveWidth: 6.5
+    caveHeight: 6.3
+    startTile: {fileID: 11400000, guid: 2fe644d1bfc6f8044bf99133e261b28d, type: 2}
+    mainTile: {fileID: 11400000, guid: 2fe644d1bfc6f8044bf99133e261b28d, type: 2}
+    densityCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.4999999
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    fadeCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    ores:
+    - name: Sapphires
+      oreTile: {fileID: 11400000, guid: 5c017508c5c7c664ab2aa764bb4d6967, type: 2}
+      oreCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0.053547304
+          outSlope: 0.053547304
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.23343846
+        - serializedVersion: 3
+          time: 0.31739807
+          value: 0.34868622
+          inSlope: 0.017335065
+          outSlope: 0.017335065
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.22851601
+        - serializedVersion: 3
+          time: 1
+          value: 0
+          inSlope: 0.06186412
+          outSlope: 0.06186412
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.20729242
+          outWeight: 0.33333334
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 0
+      xScale: 0.1
+      yScale: 0.3
+    - name: Emeralds
+      oreTile: {fileID: 11400000, guid: 71d808285ebc59a40aab2289e4160689, type: 2}
+      oreCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0.053547304
+          outSlope: 0.053547304
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.23343846
+        - serializedVersion: 3
+          time: 0.39581507
+          value: 0.2995023
+          inSlope: 0.017335065
+          outSlope: 0.017335065
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.22851601
+        - serializedVersion: 3
+          time: 1
+          value: 0
+          inSlope: 0.06186412
+          outSlope: 0.06186412
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.20729242
+          outWeight: 0.33333334
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 0
+      xScale: 0.1
+      yScale: 0.3
+    - name: Ruby
+      oreTile: {fileID: 11400000, guid: 4c90ac69c5010c44fa28f48a6f68fe4f, type: 2}
+      oreCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0.053547304
+          outSlope: 0.053547304
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.23343846
+        - serializedVersion: 3
+          time: 0.8864517
+          value: 0.2702713
+          inSlope: 0.017335065
+          outSlope: 0.017335065
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.22851601
+        - serializedVersion: 3
+          time: 1
+          value: 0
+          inSlope: 0.06186412
+          outSlope: 0.06186412
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.20729242
+          outWeight: 0.33333334
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 0
+      xScale: 0.1
+      yScale: 0.3
+    - name: Diamonds
+      oreTile: {fileID: 11400000, guid: 95714146488323342b4015aa675e0b09, type: 2}
+      oreCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0.053547304
+          outSlope: 0.053547304
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.23343846
+        - serializedVersion: 3
+          time: 0.6435318
+          value: 0.3106041
+          inSlope: 0.017335065
+          outSlope: 0.017335065
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.22851601
+        - serializedVersion: 3
+          time: 1
+          value: 0
+          inSlope: 0.06186412
+          outSlope: 0.06186412
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.20729242
+          outWeight: 0.33333334
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 0
+      xScale: 0.1
+      yScale: 0.3
 --- !u!50 &2133479006
 Rigidbody2D:
   serializedVersion: 4
@@ -7376,83 +7851,3 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
---- !u!1 &2136850901
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2136850902}
-  - component: {fileID: 2136850904}
-  - component: {fileID: 2136850903}
-  m_Layer: 5
-  m_Name: Glory
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &2136850902
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2136850901}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1859903517}
-  m_Father: {fileID: 412452263}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 16, y: 30}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2136850903
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2136850901}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: 01902c98417417743adcfdaa07e446a1, type: 3}
-    m_FontSize: 16
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 1
-    m_MaxSize: 40
-    m_Alignment: 5
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: 129
---- !u!222 &2136850904
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2136850901}
-  m_CullTransparentMesh: 1
