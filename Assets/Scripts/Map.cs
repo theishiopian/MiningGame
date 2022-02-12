@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Tiles;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using Random = UnityEngine.Random;
@@ -137,7 +138,17 @@ public class Map : MonoBehaviour
         if (power < brokenTile.hardness) return false;
         
         _tilemap.SetTile(tilePos, null);
-        brokenTile.OnBreak(position);
+        brokenTile.OnBreak(position, tilePos, _tilemap);
+        return true;
+    }
+
+    public bool TryPlaceTile(Vector3 position, GameTile toPlace)
+    {
+        var tilePos = _grid.WorldToCell(position);
+
+        if (_tilemap.GetTile(tilePos)) return false;
+        _tilemap.SetTile(tilePos, toPlace);
+        toPlace.OnPlace(position, tilePos, _tilemap);
         return true;
     }
 }

@@ -6515,6 +6515,14 @@ MonoBehaviour:
     - {fileID: 7056908354534851278, guid: 2ce6d82dcc07d2148a4e4d8f7b97e19e, type: 3}
     frameTime: 0.15
     loop: 1
+  buildState:
+    sprites:
+    - {fileID: 5402251393668616626, guid: 2ce6d82dcc07d2148a4e4d8f7b97e19e, type: 3}
+    - {fileID: -6417199148838126955, guid: 2ce6d82dcc07d2148a4e4d8f7b97e19e, type: 3}
+    - {fileID: 6440818723165312323, guid: 2ce6d82dcc07d2148a4e4d8f7b97e19e, type: 3}
+    - {fileID: 1012925747849251103, guid: 2ce6d82dcc07d2148a4e4d8f7b97e19e, type: 3}
+    frameTime: 0.2
+    loop: 1
   walkSpeed: 3
   airSpeed: 4
   climbSpeed: 2
@@ -6524,9 +6532,13 @@ MonoBehaviour:
   mineMask:
     serializedVersion: 2
     m_Bits: 1
+  toBuild: {fileID: 11400000, guid: cf8c6c4b60ef1d24cb6e32299ce9b476, type: 2}
+  camera: {fileID: 1545135478}
   bucket: {fileID: 1099921468}
+  infoText: {fileID: 812256048}
   fortuneText: {fileID: 139993098}
   gloryText: {fileID: 574353341}
+  input: {fileID: 1545135477}
   fortune: 0
   glory: 0
 --- !u!114 &1545135477
@@ -6544,6 +6556,8 @@ MonoBehaviour:
   inputType: 0
   jumpKey: 32
   mineKey: 303
+  buildKey: 304
+  interactKey: 101
 --- !u!20 &1545135478
 Camera:
   m_ObjectHideFlags: 0
@@ -7058,7 +7072,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 1, y: 1, z: 0}
   m_MaxChunkCount: 16

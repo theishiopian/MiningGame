@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEngine;
 
 using StateMachine;
+using Tiles;
 using UnityEngine.UI;
 
 namespace Player
@@ -36,6 +37,7 @@ namespace Player
         [SerializeField] private Walking walkState;
         [SerializeField] private Jumping jumpState;
         [SerializeField] private Mining mineState;
+        [SerializeField] private Building buildState;
 
         [Header("Movement")] 
         public float walkSpeed = 3;
@@ -48,10 +50,18 @@ namespace Player
         public int digPower = 1;
         public LayerMask mineMask;
 
+        [Header("Building (WIP)")] 
+        public BuildTile toBuild;
+
         [Header("UI")] 
+        public new Camera camera;
         public BucketRenderer bucket;
+        public Text infoText;
         public Text fortuneText;
         public Text gloryText;
+
+        [Header("Input")] 
+        public InputHandler input;
         
         #endregion
 
@@ -66,12 +76,14 @@ namespace Player
         {
             base.Start();
 
+            input = GetComponent<InputHandler>();
             StateMachine = new GenericStateMachine<PlayerController>(idleState, this);
 
             StateMachine.RegisterState("idle", idleState);
             StateMachine.RegisterState("walking", walkState);
             StateMachine.RegisterState("jumping", jumpState);
             StateMachine.RegisterState("mining", mineState);
+            StateMachine.RegisterState("building", buildState);
         }
 
         private void Update()
@@ -137,22 +149,28 @@ namespace Player
         public override void Update(PlayerController owner)
         {
             base.Update(owner);
-            if (InputHandler.Instance.HasInput() && InputHandler.Instance.MineHeld)
+            if (owner.input.HasDirectionalInput() && owner.input.Mine == ButtonAction.DOWN)
             {
                 owner.StateMachine.ChangeState("mining");
                 return;
             }
 
-            if (InputHandler.Instance.HasInput())
+            if (owner.input.HasDirectionalInput())
             {
                 owner.StateMachine.ChangeState("walking");
                 return;
             }
 
-            if (InputHandler.Instance.JumpHeld && owner.IsGrounded())
+            if (owner.input.Jump == ButtonAction.DOWN && owner.IsGrounded())
             {
                 owner.StateMachine.ChangeState("jumping");
-                return;//yes, this is redundant, but it may NOT be in the future
+                return;
+            }
+
+            if (owner.input.Build == ButtonAction.DOWN && owner.IsGrounded())
+            {
+                owner.StateMachine.ChangeState("building");
+                return;
             }
         }
     }
@@ -164,31 +182,44 @@ namespace Player
         public override void Update(PlayerController owner)
         {
             base.Update(owner);
-            if (InputHandler.Instance.MineHeld)
+            
+            owner.Renderer.flipX = Mathf.Sign(owner.input.InputVector.x) < 0;
+            
+            if (owner.input.Mine == ButtonAction.DOWN)
             {
                 owner.StateMachine.ChangeState("mining");
                 return;
             }
+            
+            if (owner.input.Build == ButtonAction.DOWN)
+            {
+                owner.StateMachine.ChangeState("building");
+                return;
+            }
 
-            if (!InputHandler.Instance.HasInput())
+            if (!owner.input.HasDirectionalInput())
             {
                 owner.StateMachine.ChangeState("idle");
                 return;
             }
 
-            if (InputHandler.Instance.JumpHeld && owner.IsGrounded())
+            if (owner.input.Jump == ButtonAction.DOWN && owner.IsGrounded())
             {
                 owner.StateMachine.ChangeState("jumping");
                 return;
             }
-
-            owner.Renderer.flipX = Mathf.Sign(InputHandler.Instance.InputVector.x) < 0;
+            
+            if (owner.input.Build == ButtonAction.DOWN && owner.IsGrounded())
+            {
+                owner.StateMachine.ChangeState("building");
+                return;
+            }
         }
 
         public override void FixedUpdate(PlayerController owner)
         {
             base.FixedUpdate(owner);
-            _movement.x = InputHandler.Instance.InputVector.x * Time.fixedDeltaTime * owner.walkSpeed;
+            _movement.x = owner.input.InputVector.x * Time.fixedDeltaTime * owner.walkSpeed;
             owner.Body.position += _movement;
         }
     }
@@ -210,7 +241,7 @@ namespace Player
 
             if (IsOnLastFrame() && owner.IsGrounded())
             {
-                owner.StateMachine.ChangeState(InputHandler.Instance.HasInput() ? "walking" : "idle");
+                owner.StateMachine.ChangeState(owner.input.HasDirectionalInput() ? "walking" : "idle");
             }
         }
 
@@ -218,14 +249,50 @@ namespace Player
         {
             base.FixedUpdate(owner);
 
-            _movement.x = InputHandler.Instance.InputVector.x * Time.fixedDeltaTime * owner.airSpeed;
+            _movement.x = owner.input.InputVector.x * Time.fixedDeltaTime * owner.airSpeed;
             owner.Body.position += _movement;
         }
     }
-
+    
+    [Serializable]
     internal class Building : AnimatedState<PlayerController>
     {
-        
+        public override void Enter(PlayerController owner)
+        {
+            base.Enter(owner);
+            owner.infoText.enabled = true;
+            owner.infoText.text = owner.input.inputType != InputType.SCREEN ? "Click" : "Tap" + " to build";
+            if(owner.input.inputType != InputType.SCREEN)CrossHair.Instance.SetVisible(true);
+        }
+
+        public override void Exit(PlayerController owner)
+        {
+            base.Exit(owner);
+            owner.infoText.enabled = false;
+            if(owner.input.inputType != InputType.SCREEN)CrossHair.Instance.SetVisible(false);
+        }
+
+        public override void Update(PlayerController owner)
+        {
+            base.Update(owner);
+
+            if (owner.input.Build == ButtonAction.DOWN)
+            {
+                owner.StateMachine.ChangeState(owner.input.HasDirectionalInput() ? "walking" : "idle");
+            }
+
+            if (owner.input.Click == ButtonAction.UP)
+            {
+                var didBuild = Map.Instance.TryPlaceTile(owner.input.ClickPos, owner.toBuild);
+
+                if (didBuild && owner.toBuild.exitBuildMode)
+                {
+                    owner.StateMachine.ChangeState(owner.input.HasDirectionalInput() ? "walking" : "idle");
+                }
+            }
+
+            if(owner.input.inputType != InputType.SCREEN)CrossHair.Instance.transform.position = owner.input.ClickPos;
+        }
     }
     
     internal class Climbing : AnimatedState<PlayerController>
@@ -246,7 +313,7 @@ namespace Player
         {
             base.FixedUpdate(owner);
 
-            _movement = InputHandler.Instance.InputVector * Time.fixedDeltaTime * owner.climbSpeed;
+            _movement = owner.input.InputVector * Time.fixedDeltaTime * owner.climbSpeed;
         }
     }
 
@@ -273,31 +340,31 @@ namespace Player
         {
             base.Update(owner);
 
-            if (!InputHandler.Instance.MineHeld)
+            if (owner.input.Mine != ButtonAction.HELD)
             {
-                owner.StateMachine.ChangeState(InputHandler.Instance.HasInput() ? "walking" : "idle");
+                owner.StateMachine.ChangeState(owner.input.HasDirectionalInput() ? "walking" : "idle");
                 return;
             }
 
-            if (!InputHandler.Instance.HasInput())
+            if (!owner.input.HasDirectionalInput())
             {
                 owner.StateMachine.ChangeState("idle");
                 return;
             }
 
-            owner.Renderer.flipX = Mathf.Sign(InputHandler.Instance.InputVector.x) < 0;
+            owner.Renderer.flipX = Mathf.Sign(owner.input.InputVector.x) < 0;
 
             var hasRoom = owner.bucket.fill < 100;
             var position = owner.transform.position;
-            var hit = Physics2D.Raycast(position, InputHandler.Instance.RawInputVector, owner.digRange,
+            var hit = Physics2D.Raycast(position, owner.input.RawInputVector, owner.digRange,
                 owner.mineMask);
             var targetPos = ((Vector2) position) +
-                            InputHandler.Instance.RawInputVector.normalized * (owner.digRange - 0.1f);
+                            owner.input.RawInputVector.normalized * (owner.digRange - 0.1f);
 
             if (hit)
             {
                 CrossHair.Instance.transform.position =
-                    hit.point + InputHandler.Instance.RawInputVector.normalized * 0.2f;
+                    hit.point + owner.input.RawInputVector.normalized * 0.2f;
                 CrossHair.Instance.SetColor("default");
             }
             else
@@ -309,7 +376,7 @@ namespace Player
             if (IsOnLastFrame())
             {
                 if (_hasSwung || !hit) return;
-                var pos = hit.point + (InputHandler.Instance.InputVector * 0.1f);
+                var pos = hit.point + (owner.input.InputVector * 0.1f);
 
                 if (hasRoom && Map.Instance.TryBreakTile(pos, owner.digPower, out var tile) &&
                     tile is ResourceTile brokenTile)
