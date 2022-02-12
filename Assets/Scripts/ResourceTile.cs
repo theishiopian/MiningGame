@@ -10,8 +10,6 @@ public class ResourceTile : GameTile
     {
         base.OnBreak(position);
 
-        BucketRenderer.Instance.fill += 1;
-        
         PlayerController.Instance.AddMinerals(this);
     }
 }

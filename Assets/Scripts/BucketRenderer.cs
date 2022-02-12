@@ -5,27 +5,6 @@ using UnityEngine.UI;
 
 public class BucketRenderer : MonoBehaviour
 {
-    #region SINGLETON
-    public static BucketRenderer Instance
-    {
-        get;
-        private set;
-    }
-    
-    private void Awake()
-    {
-        if (Instance)
-        {
-            Debug.LogError("Duplicate Singleton: "+gameObject.name+"! Removing...");
-            Destroy(gameObject);
-        }
-        else
-        {
-            Instance = this;
-        }
-    }
-
-    #endregion
     public GameObject layerPrefab;
     public float width = 14;
     public float vertOffset = 12;

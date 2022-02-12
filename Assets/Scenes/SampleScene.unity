@@ -632,7 +632,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 412452263}
-  - component: {fileID: 412452264}
   m_Layer: 5
   m_Name: Fortune and Glory
   m_TagString: Untagged
@@ -662,20 +661,6 @@ RectTransform:
   m_AnchoredPosition: {x: -14.75, y: -8.25}
   m_SizeDelta: {x: 32, y: 16}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &412452264
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 412452262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c10b478ca19e5124083fddfe163420fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fortune: {fileID: 139993098}
-  glory: {fileID: 574353341}
 --- !u!1 &574353339
 GameObject:
   m_ObjectHideFlags: 0
@@ -6532,12 +6517,16 @@ MonoBehaviour:
     loop: 1
   walkSpeed: 3
   airSpeed: 4
+  climbSpeed: 2
   jumpForce: 12
   digRange: 1.5
   digPower: 1
   mineMask:
     serializedVersion: 2
     m_Bits: 1
+  bucket: {fileID: 1099921468}
+  fortuneText: {fileID: 139993098}
+  gloryText: {fileID: 574353341}
   fortune: 0
   glory: 0
 --- !u!114 &1545135477
